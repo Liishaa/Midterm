@@ -65,12 +65,12 @@ st.plotly_chart(dept_fig, use_container_width=True)
 
 
 # Now use the cleaned column names
-trend_data = udash.groupby('Year', as_index=False)[['Retention_Rate (%)', 'Student_Satisfaction (%)']].mean()
+trend_data = udash.groupby('Year', as_index=False)[['Retention Rate (%)', 'Student Satisfaction (%)']].mean()
 
 fig_trend = px.line(
-    trend_data, x='Year', y=['Retention_Rate (%)', 'Student_Satisfaction (%)'],
+    trend_data, x='Year', y=['Retention Rate (%)', 'Student Satisfaction (%)'],
     title="Retention & Satisfaction Trends Over Time",
-    labels={"Retention_Rate (%)": "Retention Rate", "Student_Satisfaction (%)": "Student Satisfaction"}
+    labels={"Retention Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
 )
 
 fig_trend.update_yaxes(title_text="Rate (%)")
