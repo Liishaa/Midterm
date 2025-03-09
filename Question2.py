@@ -76,4 +76,15 @@ fig_trend = px.line(
 
 fig_trend.update_yaxes(title_text="Rate (%)")
 st.plotly_chart(fig_trend)
+st.header("Spring vs. Fall Trends")
+
+# Group data by Year and Term
+term_trends = udash.groupby(['Year', 'Term'], as_index=False)[['Retention Rate (%)', 'Student Satisfaction (%)']].mean()
+
+fig_term_trends = px.line(
+    term_trends, x='Year', y=['Retention Rate (%)', 'Student Satisfaction (%)'], color='Term',
+    title="Spring vs. Fall: Retention & Satisfaction Trends",
+    labels={"Retention Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
+)
+st.plotly_chart(fig_term_trends, use_container_width=True)
 
