@@ -88,6 +88,7 @@ fig_term_trends = px.line(
     title="Spring vs. Fall: Retention & Satisfaction Trends",
     labels={"Retention Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
 )
+fig_term_trends.update_traces(hovertemplate="Year: %{x}<br>Rate: %{y:.2%}")  # Adding tooltip
 st.plotly_chart(fig_term_trends, use_container_width=True)
 st.header("Department-Wise Enrollment Trends")
 
