@@ -49,10 +49,10 @@ st.plotly_chart(fig_enrollment, use_container_width=True)
 
 # Enrollment by Department
 dept_totals = {
-    'Engineering': udash_filtered['Engineering_Enrolled'].sum(),
-    'Business': udash_filtered['Business_Enrolled'].sum(),
-    'Arts': udash_filtered['Arts_Enrolled'].sum(),
-    'Science': udash_filtered['Science_Enrolled'].sum()
+    'Engineering': udash_filtered['Engineering Enrolled'].sum(),
+    'Business': udash_filtered['Business Enrolled'].sum(),
+    'Arts': udash_filtered['Arts Enrolled'].sum(),
+    'Science': udash_filtered['Science Enrolled'].sum()
 }
 dept_df = pd.DataFrame(list(dept_totals.items()), columns=['Department', 'Enrolled'])
 dept_fig = px.pie(
