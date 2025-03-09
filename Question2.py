@@ -73,6 +73,8 @@ fig_trend = px.line(
     title="Retention & Satisfaction Trends Over Time",
     labels={"Retention Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
 )
+fig_trend.update_traces(hovertemplate="Year: %{x}<br>Rate: %{y:.2%}")  # Adding tooltip
+st.plotly_chart(fig_trend)
 
 fig_trend.update_yaxes(title_text="Rate (%)")
 st.plotly_chart(fig_trend)
