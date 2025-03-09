@@ -100,4 +100,12 @@ fig_dept_trends = px.bar(
 )
 st.plotly_chart(fig_dept_trends, use_container_width=True)
 
+st.header("Key Findings & Insights")
+
+st.write("""
+- **Enrollment Growth:** Engineering and Science departments have seen a steady rise in enrollment.
+- **Retention Challenges:** Retention rates in the Fall term are slightly lower than in Spring.
+- **Student Satisfaction:** Business students report the highest satisfaction levels over the years.
+- **Actionable Insights:** University should focus on improving Fall retention rates by offering better support programs.
+""")
 
