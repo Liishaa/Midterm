@@ -4,15 +4,16 @@ import pandas as pd
 
 # Data Load and Cleanup
 udash = pd.read_csv('university_student_dashboard_data.csv')
-udash.columns = (udash.columns.str.replace(r'[()\s%]', '', regex=True)
-                         .str.strip()
-                         .str.replace(' ', '_', regex=True))
+
+# Fix column names to remove spaces, special characters, and percentage signs
+udash.columns = udash.columns.str.replace(r'[()%-]', '', regex=True).str.replace(r'\s+', '_', regex=True)
 
 # Normalize percentage values
-udash['Retention_Rate'] = udash['Retention_Rate']/100
-udash['Student_Satisfaction'] = udash['Student_Satisfaction']/100
+udash['Retention_Rate'] = udash['Retention_Rate'] / 100
+udash['Student_Satisfaction'] = udash['Student_Satisfaction'] / 100
 
 # Logo and Page Config
+st.set_page_config(layout="wide", page_icon="SUNY-Poly-logo.png")
 st.image("SUNY-Poly-logo.png", width=250)
 
 # Title
