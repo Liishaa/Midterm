@@ -98,7 +98,6 @@ fig_dept_trends = px.bar(
     labels={"value": "Total Enrolled", "variable": "Department"},
     barmode="group"
 )
-st.plotly_chart(fig_dept_trends, use_container_width=True)
-st.header("Department-Wise Enrollment Trends")
+
 
 
