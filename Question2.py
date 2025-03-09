@@ -64,7 +64,8 @@ st.plotly_chart(dept_fig, use_container_width=True)
 
 
 
-# Now use the cleaned column names
+#  Retention and Satisfaction Trends
+st.header("Retention & Student Satisfaction Trends")
 trend_data = udash.groupby('Year', as_index=False)[['Retention Rate (%)', 'Student Satisfaction (%)']].mean()
 
 fig_trend = px.line(
