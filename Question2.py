@@ -87,4 +87,18 @@ fig_term_trends = px.line(
     labels={"Retention Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
 )
 st.plotly_chart(fig_term_trends, use_container_width=True)
+st.header("Department-Wise Enrollment Trends")
+
+# Group by Year and Department
+dept_trends = udash.groupby('Year', as_index=False)[['Engineering Enrolled', 'Business Enrolled', 'Arts Enrolled', 'Science Enrolled']].sum()
+
+fig_dept_trends = px.bar(
+    dept_trends, x='Year', y=['Engineering Enrolled', 'Business Enrolled', 'Arts Enrolled', 'Science Enrolled'],
+    title="Enrollment Trends by Department",
+    labels={"value": "Total Enrolled", "variable": "Department"},
+    barmode="group"
+)
+st.plotly_chart(fig_dept_trends, use_container_width=True)
+st.header("Department-Wise Enrollment Trends")
+
 
