@@ -5,12 +5,9 @@ import pandas as pd
 # Data Load and Cleanup
 udash = pd.read_csv('university_student_dashboard_data.csv')
 
-# Fix column names to remove spaces, special characters, and percentage signs
-udash.columns = udash.columns.str.replace(r'[()%-]', '', regex=True).str.replace(r'\s+', '_', regex=True)
-
 # Normalize percentage values
-udash['Retention_Rate'] = udash['Retention_Rate'] / 100
-udash['Student_Satisfaction'] = udash['Student_Satisfaction'] / 100
+udash['Retention Rate (%)'] = udash['Retention Rate (%)'] / 100
+udash['Student Satisfaction (%)'] = udash['Student Satisfaction (%)'] / 100
 
 # Logo and Page Config
 st.set_page_config(layout="wide", page_icon="SUNY-Poly-logo.png")
@@ -67,11 +64,11 @@ st.plotly_chart(dept_fig, use_container_width=True)
 
 # Retention and Satisfaction Trends
 st.header("Retention & Student Satisfaction Trends")
-trend_data = udash.groupby('Year', as_index=False)[['Retention_Rate', 'Student_Satisfaction']].mean()
+trend_data = udash.groupby('Year', as_index=False)[['Retention_Rate (%)', 'Student_Satisfaction (%)']].mean()
 fig_trend = px.line(
-    trend_data, x='Year', y=['Retention_Rate', 'Student_Satisfaction'],
+    trend_data, x='Year', y=['Retention_Rate (%)', 'Student_Satisfaction (%)'],
     title="Retention & Satisfaction Trends Over Time",
-    labels={"Retention_Rate": "Retention Rate", "Student_Satisfaction": "Student Satisfaction"}
+    labels={"Retention_Rate (%)": "Retention Rate", "Student Satisfaction (%)": "Student Satisfaction"}
 )
 fig_trend.update_yaxes(title_text="Rate (%)")
 st.plotly_chart(fig_trend)
