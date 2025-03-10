@@ -79,18 +79,6 @@ st.plotly_chart(fig_trend)
 fig_trend.update_yaxes(title_text="Rate (%)")
 st.plotly_chart(fig_trend)
 
-
-
-# Spring vs. Fall Enrollment Statistics
-st.header("Spring vs. Fall Enrollment Trends")
-fig_enroll_term = px.bar(
-    term_trends, x='Year', y='Enrolled', color='Term',
-    title="Spring vs. Fall Enrollment Trends",
-    labels={"Enrolled": "Total Enrolled", "Term": "Term"},
-    barmode='group'
-)
-st.plotly_chart(fig_enroll_term, use_container_width=True)
-st.plotly_chart(fig_term_trends, use_container_width=True)
 # Group data by Year and Term
 st.header("Spring vs. Fall Trends")
 term_trends = udash.groupby(['Year', 'Term'], as_index=False)[['Retention Rate (%)', 'Student Satisfaction (%)']].mean()
