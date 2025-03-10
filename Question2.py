@@ -45,18 +45,6 @@ col4.metric("Total Applications", f"{udash[udash['Term'] == 'Spring']['Applicati
 col5.metric("Total Admitted", f"{udash[udash['Term'] == 'Spring']['Admitted'].sum():,}")
 col6.metric("Total Enrolled", f"{udash[udash['Term'] == 'Spring']['Enrolled'].sum():,}")
 
-st.metric("Total Applications", f"{udash_filtered['Applications'].sum():,}")
-st.metric("Total Admitted", f"{udash_filtered['Admitted'].sum():,}")
-st.metric("Total Enrolled", f"{udash_filtered['Enrolled'].sum():,}")
-# Spring vs. Fall Enrollment Stats
-spring_enrollment = udash[udash['Term'] == 'Spring']['Enrolled'].sum()
-fall_enrollment = udash[udash['Term'] == 'Fall']['Enrolled'].sum()
-
-col1, col2 = st.columns(2)
-col1.metric("Total Enrolled (Spring)", f"{spring_enrollment:,}")
-col2.metric("Total Enrolled (Fall)", f"{fall_enrollment:,}")
-
-
 # Enrollment Trends
 st.header("Student Enrollment Trends")
 enrollment_yoy = udash.groupby('Year', as_index=False)['Enrolled'].sum()
