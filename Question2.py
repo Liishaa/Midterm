@@ -99,7 +99,7 @@ fig_enroll_term = px.bar(
     barmode='group'
 )
 st.plotly_chart(fig_enroll_term, use_container_width=True)
-st.plotly_chart(fig_term_trends, use_container_width=True)
+
 
 # Group by Year and Department
 st.header("Department-Wise Enrollment Trends")
