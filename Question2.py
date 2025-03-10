@@ -32,6 +32,19 @@ if selected_term != "All":
 
 # KPIs Section
 st.header("Key Indicators")
+# Spring and Fall Term Statistics
+st.subheader("Fall All Years")
+col1, col2, col3 = st.columns(3)
+col1.metric("Total Applications", f"{udash[udash['Term'] == 'Fall']['Applications'].sum():,}")
+col2.metric("Total Admitted", f"{udash[udash['Term'] == 'Fall']['Admitted'].sum():,}")
+col3.metric("Total Enrolled", f"{udash[udash['Term'] == 'Fall']['Enrolled'].sum():,}")
+
+st.subheader("Spring All Years")
+col4, col5, col6 = st.columns(3)
+col4.metric("Total Applications", f"{udash[udash['Term'] == 'Spring']['Applications'].sum():,}")
+col5.metric("Total Admitted", f"{udash[udash['Term'] == 'Spring']['Admitted'].sum():,}")
+col6.metric("Total Enrolled", f"{udash[udash['Term'] == 'Spring']['Enrolled'].sum():,}")
+
 st.metric("Total Applications", f"{udash_filtered['Applications'].sum():,}")
 st.metric("Total Admitted", f"{udash_filtered['Admitted'].sum():,}")
 st.metric("Total Enrolled", f"{udash_filtered['Enrolled'].sum():,}")
