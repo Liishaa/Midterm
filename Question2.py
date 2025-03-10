@@ -90,15 +90,7 @@ fig_term_trends = px.line(
 )
 fig_term_trends.update_traces(hovertemplate="Year: %{x}<br>Rate: %{y:.2%}")  # Adding tooltip
 st.plotly_chart(fig_term_trends, use_container_width=True)
-# Spring vs. Fall Enrollment Statistics
-st.header("Spring vs. Fall Enrollment Trends")
-fig_enroll_term = px.bar(
-    term_trends, x='Year', y='Enrolled', color='Term',
-    title="Spring vs. Fall Enrollment Trends",
-    labels={"Enrolled": "Total Enrolled", "Term": "Term"},
-    barmode='group'
-)
-st.plotly_chart(fig_enroll_term, use_container_width=True)
+st.plotly_chart(fig_term_trends, use_container_width=True)
 
 
 # Group by Year and Department
