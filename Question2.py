@@ -90,7 +90,6 @@ fig_term_trends = px.line(
 )
 fig_term_trends.update_traces(hovertemplate="Year: %{x}<br>Rate: %{y:.2%}")  # Adding tooltip
 st.plotly_chart(fig_term_trends, use_container_width=True)
-st.plotly_chart(fig_term_trends, use_container_width=True)
 
 
 # Group by Year and Department
