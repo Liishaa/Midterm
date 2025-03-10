@@ -35,6 +35,14 @@ st.header("Key Indicators")
 st.metric("Total Applications", f"{udash_filtered['Applications'].sum():,}")
 st.metric("Total Admitted", f"{udash_filtered['Admitted'].sum():,}")
 st.metric("Total Enrolled", f"{udash_filtered['Enrolled'].sum():,}")
+# Spring vs. Fall Enrollment Stats
+spring_enrollment = udash[udash['Term'] == 'Spring']['Enrolled'].sum()
+fall_enrollment = udash[udash['Term'] == 'Fall']['Enrolled'].sum()
+
+col1, col2 = st.columns(2)
+col1.metric("Total Enrolled (Spring)", f"{spring_enrollment:,}")
+col2.metric("Total Enrolled (Fall)", f"{fall_enrollment:,}")
+
 
 # Enrollment Trends
 st.header("Student Enrollment Trends")
@@ -90,17 +98,6 @@ fig_term_trends = px.line(
 )
 fig_term_trends.update_traces(hovertemplate="Year: %{x}<br>Rate: %{y:.2%}")  # Adding tooltip
 st.plotly_chart(fig_term_trends, use_container_width=True)
-# Spring vs. Fall Enrollment Statistics
-st.header("Spring vs. Fall Enrollment Trends")
-fig_enroll_term = px.bar(
-    term_trends, x='Year', y='Enrolled', color='Term',
-    title="Spring vs. Fall Enrollment Trends",
-    labels={"Enrolled": "Total Enrolled", "Term": "Term"},
-    barmode='group'
-)
-st.plotly_chart(fig_enroll_term, use_container_width=True)
-
-
 
 # Group by Year and Department
 st.header("Department-Wise Enrollment Trends")
